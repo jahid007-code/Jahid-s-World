@@ -173,7 +173,7 @@
         </ul>
     </nav>
 
-    <!-- 2. HOME TAB (Sudhu Welcome Content) -->
+    <!-- 2. HOME TAB -->
     <div id="home" class="tab-content active">
         <div class="glass-card" style="text-align: center;">
             <h1>Welcome to Jahid's World</h1>
@@ -181,39 +181,52 @@
                 Welcome to my world where I capture memories, miles, and everyday moments. Click on the menu tabs above to explore my travel adventures and photo gallery!
             </p>
         </div>
+
+        <!-- PUBLIC REVIEWS SECTION ON HOME PAGE -->
+        <div class="glass-card" style="margin-top: 30px;">
+            <h2 class="section-title" style="color: #00c6ff; text-align: center;">Public Reviews</h2>
+            
+            <!-- Button to open Google Form -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDkznwz9jqJAVLG4gyiAJz3ymPx3DrF0Fqd4ekeIqvrhK8ow/viewform?usp=header" target="_blank" style="background: linear-gradient(to right, #00c6ff, #0072ff); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-block;">
+                    ✍️ Leave a Review
+                </a>
+            </div>
+
+            <div id="reviews-container" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <p style="text-align: center; color: #aaa;">Loading reviews...</p>
+            </div>
+        </div>
     </div>
 
-    <!-- 3. TRAVEL TAB (Sudhu Travel Stories) -->
+    <!-- 3. TRAVEL TAB -->
     <div id="travel" class="tab-content">
         <div class="glass-card">
             <h2 class="section-title">My Travel Adventures</h2>
             
             <h3 style="color: #ff7e5f; font-size: 1.4rem; margin-bottom: 15px;">A Quiet Beach Day</h3>
-            
             <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
                 <a href="images/sunset.jpg" target="_blank">
                     <img src="images/sunset.jpg" alt="Beach 1" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
                 </a>
             </div>
-
             <p style="color: #d1d5db; line-height: 1.8;">
                 Watching the sunset by the ocean was one of the most relaxing experiences of my life...
             </p>
-		<h3 style="color: #ff7e5f; font-size: 1.4rem; margin-bottom: 15px;">Sydney Night</h3>
-            
+
+            <h3 style="color: #ff7e5f; font-size: 1.4rem; margin-bottom: 15px; margin-top: 25px;">Sydney Night</h3>
             <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
                 <a href="images/syd.jpg" target="_blank">
-                    <img src="images/syd.jpg" alt="Beach 1" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
+                    <img src="images/syd.jpg" alt="Sydney Night" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
                 </a>
             </div>
-
             <p style="color: #d1d5db; line-height: 1.8;">
                 A great sydney night view...
             </p>
-			</div>
+        </div>
     </div>
 
-    <!-- 4. GALLERY TAB (Sudhu Photos Category wise) -->
+    <!-- 4. GALLERY TAB -->
     <div id="gallery" class="tab-content">
         <div class="glass-card">
             <h2 class="section-title">Memories & Gallery</h2>
@@ -243,34 +256,13 @@
             </a>
         </div>
     </div>
-<!-- RATE MY WEBSITE SECTION -->
-        <div class="glass-card" style="text-align: center;">
-            <h2 class="section-title" style="color: #00c6ff;">Rate My Website</h2>
-            <p style="color: #d1d5db; margin-bottom: 15px;">Your feedback helps me improve!</p>
 
-            <div id="star-container" style="font-size: 2.2rem; color: #ffca28; cursor: pointer; margin-bottom: 15px;">
-                <span onclick="setRating(1)">★</span>
-                <span onclick="setRating(2)">★</span>
-                <span onclick="setRating(3)">★</span>
-                <span onclick="setRating(4)">★</span>
-                <span onclick="setRating(5)">★</span>
-            </div>
-
-            <p id="rating-text" style="color: #ff7e5f; font-weight: 500; margin-bottom: 15px;"></p>
-
-            <form action="https://formspree.io/f/xppqyrbq" method="POST" style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto;">
-                <input type="hidden" name="rating" id="selected-rating" value="5">
-                <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; outline: none;">
-                <textarea name="message" placeholder="Leave your review or comment..." rows="3" required style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; outline: none;"></textarea>
-                <button type="submit" style="background: linear-gradient(to right, #00c6ff, #0072ff); color: white; padding: 10px; border: none; border-radius: 20px; font-weight: 600; cursor: pointer;">Submit Review</button>
-            </form>
-        </div>
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Jahid's World. All Rights Reserved.</p>
     </footer>
 
-    <!-- Tab Switching Script -->
+    <!-- Scripts -->
     <script>
         function openTab(tabName, element) {
             var i, tabcontent, tabbtns;
@@ -288,18 +280,60 @@
             document.getElementById(tabName).classList.add("active");
             element.classList.add("active");
         }
-		function setRating(stars) {
-            document.getElementById('selected-rating').value = stars;
-            document.getElementById('rating-text').innerText = "You selected " + stars + " Star(s)!";
-            let starElements = document.querySelectorAll('#star-container span');
-            starElements.forEach((star, index) => {
-                if (index < stars) {
-                    star.style.color = '#ffca28';
-                } else {
-                    star.style.color = '#555';
+
+        // Google Sheet CSV URL
+        const sheetCsvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT5rV7WZMkEsE09hsI8wSsRXrCd6H3cvUkjQ1zAQb0lvjqt67WxjlBZNjbTW8LGEQ49345T-f39qVPi/pub?output=csv";
+
+        async function loadReviews() {
+            try {
+                const response = await fetch(sheetCsvUrl);
+                const data = await response.text();
+                
+                const rows = data.split('\n').slice(1);
+                const container = document.getElementById('reviews-container');
+                container.innerHTML = '';
+
+                let hasReviews = false;
+
+                rows.reverse().forEach(row => {
+                    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    if (cols.length >= 2) {
+                        const rating = cols[1] ? cols[1].replace(/"/g, '').trim() : '5';
+                        const message = cols[2] ? cols[2].replace(/"/g, '').trim() : '';
+
+                        if (message !== '') {
+                            hasReviews = true;
+                            const card = document.createElement('div');
+                            card.style.cssText = "background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1);";
+                            
+                            let starsHtml = '';
+                            const starNum = parseInt(rating) || 5;
+                            for (let i = 0; i < 5; i++) {
+                                starsHtml += i < starNum ? '★' : '☆';
+                            }
+
+                            card.innerHTML = `
+                                <div style="margin-bottom: 8px;">
+                                    <span style="color: #ffca28; font-size: 1.1rem;">${starsHtml} (${rating}/5)</span>
+                                </div>
+                                <p style="color: #d1d5db; font-size: 0.95rem; margin: 0;">${message}</p>
+                            `;
+                            container.appendChild(card);
+                        }
+                    }
+                });
+
+                if (!hasReviews) {
+                    container.innerHTML = '<p style="text-align: center; color: #aaa;">No reviews yet. Be the first to leave one!</p>';
                 }
-            });
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+                document.getElementById('reviews-container').innerHTML = '<p style="text-align: center; color: #ff5555;">Failed to load reviews.</p>';
+            }
         }
+
+        // Load reviews on page startup
+        loadReviews();
     </script>
 
 </body>

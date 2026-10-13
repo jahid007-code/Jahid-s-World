@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Personal Journal of Jahid</title>
+    
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(15, 32, 39, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00c6ff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links button:hover, .nav-links button.active {
+            background: #00c6ff;
+            color: #0f2027;
+        }
+
+        /* Tab Content Section */
+        .tab-content {
+            display: none;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            width: 90%;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ff7e5f;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* Social Media Button */
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1877f2;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(10, 20, 25, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navigation Menu -->
+    <nav>
+        <a href="#" class="logo">Jahid's World</a>
+        <ul class="nav-links">
+            <li><button class="tab-btn active" onclick="openTab('home', this)">Home</button></li>
+            <li><button class="tab-btn" onclick="openTab('travel', this)">Travel</button></li>
+            <li><button class="tab-btn" onclick="openTab('gallery', this)">Gallery</button></li>
+            <li><button class="tab-btn" onclick="openTab('about', this)">About Me</button></li>
+        </ul>
+    </nav>
+
+    <!-- 2. HOME TAB (Sudhu Welcome Content) -->
+    <div id="home" class="tab-content active">
+        <div class="glass-card" style="text-align: center;">
+            <h1>Welcome to Jahid's World</h1>
+            <p style="font-size: 1.2rem; color: #d1d5db; margin-top: 15px;">
+                Welcome to my world where I capture memories, miles, and everyday moments. Click on the menu tabs above to explore my travel adventures and photo gallery!
+            </p>
+        </div>
+    </div>
+
+    <!-- 3. TRAVEL TAB (Sudhu Travel Stories) -->
+    <div id="travel" class="tab-content">
+        <div class="glass-card">
+            <h2 class="section-title">My Travel Adventures</h2>
+            
+            <h3 style="color: #ff7e5f; font-size: 1.4rem; margin-bottom: 15px;">A Quiet Beach Day</h3>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                <a href="images/sunset.jpg" target="_blank">
+                    <img src="images/sunset.jpg" alt="Beach 1" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
+                </a>
+            </div>
+
+            <p style="color: #d1d5db; line-height: 1.8;">
+                Watching the sunset by the ocean was one of the most relaxing experiences of my life...
+            </p>
+		<h3 style="color: #ff7e5f; font-size: 1.4rem; margin-bottom: 15px;">Sydney Night</h3>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                <a href="images/syd.jpg" target="_blank">
+                    <img src="images/syd.jpg" alt="Beach 1" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.2);">
+                </a>
+            </div>
+
+            <p style="color: #d1d5db; line-height: 1.8;">
+                A great sydney night view...
+            </p>
+			</div>
+    </div>
+
+    <!-- 4. GALLERY TAB (Sudhu Photos Category wise) -->
+    <div id="gallery" class="tab-content">
+        <div class="glass-card">
+            <h2 class="section-title">Memories & Gallery</h2>
+            <div class="gallery-grid">
+                <div class="category-card">
+                    <img src="images/airport.jpg" alt="Travel">
+                    <h3>Travel Moments</h3>
+                </div>
+                <div class="category-card">
+                    <img src="images/sunset.jpg" alt="Daily Life">
+                    <h3>Daily Life</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. ABOUT ME TAB -->
+    <div id="about" class="tab-content">
+        <div class="glass-card" style="text-align: center;">
+            <h2 class="section-title">About Me</h2>
+            <p style="color: #d1d5db; line-height: 1.8;">
+                Hi, I'm Jahid! Welcome to my personal journal.
+            </p>
+            <br>
+            <a href="https://www.facebook.com/jahid.hasan.126554" target="_blank" class="social-btn">
+                <i class="fab fa-facebook-f"></i> Connect on Facebook
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Jahid's World. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Tab Switching Script -->
+    <script>
+        function openTab(tabName, element) {
+            var i, tabcontent, tabbtns;
+            
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            tabbtns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabbtns.length; i++) {
+                tabbtns[i].classList.remove("active");
+            }
+            
+            document.getElementById(tabName).classList.add("active");
+            element.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

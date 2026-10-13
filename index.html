@@ -243,7 +243,28 @@
             </a>
         </div>
     </div>
+<!-- RATE MY WEBSITE SECTION -->
+        <div class="glass-card" style="text-align: center;">
+            <h2 class="section-title" style="color: #00c6ff;">Rate My Website</h2>
+            <p style="color: #d1d5db; margin-bottom: 15px;">Your feedback helps me improve!</p>
 
+            <div id="star-container" style="font-size: 2.2rem; color: #ffca28; cursor: pointer; margin-bottom: 15px;">
+                <span onclick="setRating(1)">★</span>
+                <span onclick="setRating(2)">★</span>
+                <span onclick="setRating(3)">★</span>
+                <span onclick="setRating(4)">★</span>
+                <span onclick="setRating(5)">★</span>
+            </div>
+
+            <p id="rating-text" style="color: #ff7e5f; font-weight: 500; margin-bottom: 15px;"></p>
+
+            <form action="https://formspree.io/f/mqakvjzp" method="POST" style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto;">
+                <input type="hidden" name="rating" id="selected-rating" value="5">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; outline: none;">
+                <textarea name="message" placeholder="Leave your review or comment..." rows="3" required style="padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; outline: none;"></textarea>
+                <button type="submit" style="background: linear-gradient(to right, #00c6ff, #0072ff); color: white; padding: 10px; border: none; border-radius: 20px; font-weight: 600; cursor: pointer;">Submit Review</button>
+            </form>
+        </div>
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Jahid's World. All Rights Reserved.</p>
@@ -266,6 +287,18 @@
             
             document.getElementById(tabName).classList.add("active");
             element.classList.add("active");
+        }
+		function setRating(stars) {
+            document.getElementById('selected-rating').value = stars;
+            document.getElementById('rating-text').innerText = "You selected " + stars + " Star(s)!";
+            let starElements = document.querySelectorAll('#star-container span');
+            starElements.forEach((star, index) => {
+                if (index < stars) {
+                    star.style.color = '#ffca28';
+                } else {
+                    star.style.color = '#555';
+                }
+            });
         }
     </script>
 
